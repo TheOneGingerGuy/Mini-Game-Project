@@ -23,6 +23,14 @@ body {
       margin-top: 1rem;
     }
     #start{
-      color: cornflowerblue;
-      
+      background-color: cornflowerblue;
+      border-radius: 15px;
+      padding: 3px;
+      width: 75px;
+    }
+     #restart{
+      background-color: cornflowerblue;
+      border-radius: 15px;
+      padding: 3px;
+      width: 75px;
     }
