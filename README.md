@@ -2,27 +2,17 @@
 Creating a mini game project for west-mec coding
 
 <!-- To-Do List/Requirements
-body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    #gameArea {
-      width: 400px;
-      height: 300px;
-      border: 2px solid #333;
-      margin: 2rem auto;
-      position: relative;
-      overflow: hidden;
-    }
-    #player {
-      width: 40px;
-      height: 40px;
-      background: orange;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-    #info {
-      margin-top: 1rem;
-    } -->
+    // TODO: Choose your game type and implement it.
+    // Ideas:
+    //  A) Keyboard Player Mover
+    //     - Use keydown events to change player position.
+    //  B) Mouse-Avoid Game
+    //     - Track mouse and move player/enemy.
+    //  C) Click Reaction Game
+    //     - Spawn targets; user clicks quickly.
+
+    // Requirements:
+    //  - At least 2 event listeners (keyboard/mouse/click)
+    //  - Continuous DOM updates
+    //  - Visible interaction on screen
+  
