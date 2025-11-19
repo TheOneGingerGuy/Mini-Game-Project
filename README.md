@@ -1,7 +1,7 @@
 # Mini-Game-Project
 Creating a mini game project for west-mec coding
-To-Do List/Requirements
 
+<!-- To-Do List/Requirements
 body {
       font-family: Arial, sans-serif;
       text-align: center;
@@ -25,4 +25,4 @@ body {
     }
     #info {
       margin-top: 1rem;
-    }
+    } -->
