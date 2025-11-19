@@ -10,7 +10,7 @@ body {
       position: relative;
       overflow: hidden;
     }
-    #player {
+    #target{
       width: 40px;
       height: 40px;
       background: orange;
