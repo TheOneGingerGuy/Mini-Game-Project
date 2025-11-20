@@ -2,6 +2,8 @@ const start = document.getElementById(`start`)
 const reset = document.getElementById(`reset`)
 const gameArea = document.getElementById(`gameArea`)
 const target = document.getElementById(`target`)
+const times = [];
+const score = [];
 // basic targeters for the divs in the Html
 
 
@@ -16,8 +18,8 @@ function position(target,gameArea){
     // I looked it up if it wasnt obvious.
     // It just defines widths and heights as numbers for math.
 
-    const maxX = areaWidth - tgtWidth - 10;
-    const maxY = areaHeight - tgtHeight - 10;
+    const maxX = areaWidth - tgtWidth;
+    const maxY = areaHeight - tgtHeight;
 
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
@@ -25,8 +27,15 @@ function position(target,gameArea){
     target.style.left = randomX + `px`;
     target.style.top = randomY + `px`;
 }
+// function stpWatch(){
+//     const startTime = Date.now();
+// }
 target.addEventListener(`click`, (e)=>{
-
+    console.timeEnd(`clickTimer`)
+    position(target,gameArea);
+    console.time(`clickTimer`)
+    times.push(`${clickTimer / 1000}`)
+    console.log(`${times}`)
 })
 reset.addEventListener(`click`, e=>{
     start.style.display = `inline`;
@@ -35,5 +44,5 @@ reset.addEventListener(`click`, e=>{
 start.addEventListener(`click`, (e)=>{
     start.style.display =`none`;
     position(target,gameArea);    
-    target.style.display = `inline`
+    target.style.display = `inline`;
 }) 
