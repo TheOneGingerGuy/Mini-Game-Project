@@ -25,10 +25,15 @@ function position(target,gameArea){
     target.style.left = randomX + `px`;
     target.style.top = randomY + `px`;
 }
+target.addEventListener(`click`, (e)=>{
+
+})
 reset.addEventListener(`click`, e=>{
     start.style.display = `inline`;
+    target.style.display =  `none`;
 })
 start.addEventListener(`click`, (e)=>{
     start.style.display =`none`;
     position(target,gameArea);    
+    target.style.display = `inline`
 }) 
