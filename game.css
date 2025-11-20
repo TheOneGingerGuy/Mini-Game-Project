@@ -22,3 +22,9 @@ body {
     #info {
       margin-top: 1rem;
     }
+    #bar{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 30px;
+    }
