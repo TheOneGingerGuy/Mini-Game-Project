@@ -16,8 +16,8 @@ function position(target,gameArea){
     // I looked it up if it wasnt obvious.
     // It just defines widths and heights as numbers for math.
 
-    const maxX = areaWidth - tgtWidth;
-    const maxY = areaHeight - tgtHeight;
+    const maxX = areaWidth - tgtWidth - 10;
+    const maxY = areaHeight - tgtHeight - 10;
 
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
@@ -26,9 +26,9 @@ function position(target,gameArea){
     target.style.top = randomY + `px`;
 }
 reset.addEventListener(`click`, e=>{
-    start.style.display = `block`;
+    start.style.display = `inline`;
 })
 start.addEventListener(`click`, (e)=>{
     start.style.display =`none`;
-    target(target,gameArea);    
+    position(target,gameArea);    
 }) 
