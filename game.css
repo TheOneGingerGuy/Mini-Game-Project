@@ -20,6 +20,9 @@ body {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      background-image: url(./5b96qsjszeqd1.gif);
+      background-size: cover;
+      display: none;
     }
     #info {
       margin-top: 1rem;
