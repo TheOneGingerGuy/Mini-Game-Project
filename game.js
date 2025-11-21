@@ -1,4 +1,5 @@
 const start = document.getElementById(`start`)
+const pause = document.getElementById(`pause`)
 const reset = document.getElementById(`reset`)
 const gameArea = document.getElementById(`gameArea`)
 const target = document.getElementById(`target`)
@@ -6,6 +7,7 @@ const times = [];
 const score = [];
 let seconds = 0;
 let timer = null;
+let lives = 3
 // basic targeters for the divs in the Html
 
 
@@ -33,26 +35,27 @@ function position(target,gameArea){
 //     const startTime = Date.now();
 // }
 target.addEventListener(`click`, (e)=>{
-    console.timeEnd(`clickTimer`)
     position(target,gameArea);
-    console.time(`clickTimer`)
-    times.push(`${clickTimer / 1000}`)
-    console.log(`${times}`)
+    updateScore.innerHTML++
 })
 reset.addEventListener(`click`, e=>{
     start.style.display = `inline`;
     target.style.display =  `none`;
+    updateScore.innerHTML = 0
 })
 start.addEventListener(`click`, (e)=>{
     start.style.display =`none`;
     position(target,gameArea);    
     target.style.display = `inline`;
 })
+pause.addEventListener(`click`, e=>{
+    target.style.display =  `none`;
+})
 function updateDisplay(){
     document.getElementById('timerDisplay').textContent = seconds
 }
 function startTimer(){
-    if(timer=== null){
+    if(timer === null){
         timer = setInterval(()=>{
             seconds++;
             updateDisplay();
@@ -64,7 +67,7 @@ function pauseTimer(){
     timer = null
 }
 function resetTimer(){
-    stopTimer();
+    pauseTimer();
     seconds = 0
-    updateDisplay();
+    updateDisplay(seconds);
 }
