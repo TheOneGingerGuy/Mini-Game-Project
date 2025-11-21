@@ -4,6 +4,8 @@ const gameArea = document.getElementById(`gameArea`)
 const target = document.getElementById(`target`)
 const times = [];
 const score = [];
+let seconds = 0;
+let timer = null;
 // basic targeters for the divs in the Html
 
 
@@ -45,4 +47,24 @@ start.addEventListener(`click`, (e)=>{
     start.style.display =`none`;
     position(target,gameArea);    
     target.style.display = `inline`;
-}) 
+})
+function updateDisplay(){
+    document.getElementById('timerDisplay').textContent = seconds
+}
+function startTimer(){
+    if(timer=== null){
+        timer = setInterval(()=>{
+            seconds++;
+            updateDisplay();
+        }, 1000) //1s
+    }
+}
+function pauseTimer(){
+    clearInterval(timer)
+    timer = null
+}
+function resetTimer(){
+    stopTimer();
+    seconds = 0
+    updateDisplay();
+}

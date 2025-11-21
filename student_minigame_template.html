@@ -10,14 +10,14 @@
 <body>
   <h1>Click Bananza</h1>
   <p>Click Reaction Time Game</p>
-  <button id="start">Start</button>
-  <button id="reset">Reset</button>
+  <button id="start" onclick="startTimer()">Start</button>
+  <button id="reset" onclick="resetTimer()">Reset</button>
   <div id="gameArea">
     <div id="target"></div>
   </div>
   <div id="bar">
-    <h3>Timer: <span id="timerDisplay">0</span> Seconds</h3>
-    <h3>Ipsum</h3>
+    <h3>Time: <span id="timerDisplay">0</span> Seconds</h3>
+    <h3>Time Elapsed:</h3>
     <h3>Odor</h3>
   </div>
   <p id="info">Click the boxes as they appear and gain points to go onto higher and higher levels</p>
