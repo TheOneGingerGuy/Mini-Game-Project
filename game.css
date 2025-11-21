@@ -43,6 +43,30 @@ body {
       box-shadow: 2px 2px 5px cornflowerblue;
       color: #dcdbd8;
     }
+    #soundToggleButton{
+      background-color: cornflowerblue;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition:background-color 0.3s;
+    }
+    #soundToggleButton:hover{
+      background-color: #dcdbd8;
+    }
+    #soundToggleButton.sound-on .fa-volume-mute {
+      display: none !important;
+    }
+    #soundToggleButton.sound-off .fa-volume-up {
+      display: none !important;
+    }
+    #soundToggleButton.sound-on .fa-volume-mute {
+      display: inline-block !important;
+    }
+
     button:hover {
   font-size : 12px;
 }
