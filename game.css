@@ -43,6 +43,14 @@ body {
       box-shadow: 2px 2px 5px cornflowerblue;
       color: #dcdbd8;
     }
+    #pause{
+      background-color: cornflowerblue;
+      border-radius: 15px;
+      padding: 3px;
+      width: 75px;
+      box-shadow: 2px 2px 5px cornflowerblue;
+      color: #dcdbd8;
+    }
     #soundToggleButton{
       background-color: cornflowerblue;
       color: white;
