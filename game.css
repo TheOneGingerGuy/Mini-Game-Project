@@ -67,15 +67,12 @@ body {
     #soundToggleButton.sound-on .fa-volume-mute {
       display: inline-block !important;
     }
-
-    button:hover {
-  font-size : 12px;
-}
-=======
-    #bar{
+  #bar{
       display: flex;
       flex-direction: row;
       justify-content: center;
       gap: 30px;
     }
->>>>>>> main
+    button:hover {
+  font-size : 12px;
+}
