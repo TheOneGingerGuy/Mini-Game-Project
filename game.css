@@ -27,6 +27,7 @@ body {
     #info {
       margin-top: 1rem;
     }
+<<<<<<< HEAD
     #start{
       background-color: cornflowerblue;
       border-radius: 15px;
@@ -70,3 +71,11 @@ body {
     button:hover {
   font-size : 12px;
 }
+=======
+    #bar{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 30px;
+    }
+>>>>>>> main
