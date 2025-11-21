@@ -10,17 +10,16 @@
 <body>
   <h1>Click Bananza</h1>
   <p>Click Reaction Time Game</p>
-  <button id="start">Start</button>
-  <button id="pause">Pause</button>
-  <button id="reset">Reset</button>
-  
+  <button id="start" onclick="startTimer()">Start</button>
+  <button id="pause" onclick="pauseTimer()">Pause</button>
+  <button id="reset" onclick="resetTimer()">Reset</button>
   <div id="gameArea">
     <div id="target"></div>
   </div>
   <div id="bar">
-    <h3>Time: <span id="timerDisplay">0</span> Seconds</h3>
-    <h3>Ipsum</h3>
-    <h3>Odor</h3>
+    <h3>Timer: <span id="timerDisplay">0</span> Seconds</h3>
+    <h3>Score: <span id="updateScore">0</span></h3>
+    <h3><span id="livesCounter">3</span> Lives</h3>
   </div>
   <p id="info">Click the boxes as they appear and gain points to go onto higher and higher levels</p>
   <script src="./game.js"></script>
