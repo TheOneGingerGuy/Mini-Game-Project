@@ -7,8 +7,14 @@ const times = [];
 const score = [];
 let seconds = 0;
 let timer = null;
-let lives = 3
+let lives = 3;
+const sfxAudio = document.getElementById(`sfxAudio`)
+const soundToggleButton = document.getElementById(`soundToggleButton`)
+const sfx = {
+    soundEffect: new Audio(`squidward-spare-change-made-with-Voicemod.mp3`)
+}
 // basic targeters for the divs in the Html
+
 
 
 
@@ -37,6 +43,7 @@ function position(target,gameArea){
 target.addEventListener(`click`, (e)=>{
     position(target,gameArea);
     updateScore.innerHTML++
+    soundEffect: new Audio(``)
 })
 reset.addEventListener(`click`, e=>{
     start.style.display = `inline`;
@@ -71,3 +78,15 @@ function resetTimer(){
     seconds = 0
     updateDisplay(seconds);
 }
+soundToggleButton.addEventListener(click ,  e=> {
+    if(sfxAudio.muted){
+        sfxAudio.muted = false;
+        soundToggleButton.classList.remove(`sound-off`);
+        soundToggleButton.classList.add(`sound-on`);
+    }else{
+        sfxAudio.muted = true;
+        soundToggleButton.classList.remove(`sound-on`);
+        soundToggleButton.classList.add(`sound-off`);
+    }
+})
+   
