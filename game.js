@@ -48,7 +48,7 @@ target.addEventListener(`click`, (e)=>{
 reset.addEventListener(`click`, e=>{
     start.style.display = `inline`;
     target.style.display =  `none`;
-    updateScore.innerHTML = 0
+    updateScore.innerHTML = 0;
 })
 start.addEventListener(`click`, (e)=>{
     start.style.display =`none`;
