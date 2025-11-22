@@ -16,7 +16,7 @@ const soundToggleButton = document.getElementById(`soundToggleButton`)
 const sfx = {
     soundEffect: new Audio(`squidward-spare-change-made-with-Voicemod.mp3`)
 }
-const appearDelay = Math.random() * 1500 + 500; // 0.5 to 2 seconds
+const delay = Math.random() * 1500 + 500; // 0.5 to 2 seconds
 // basic targeters for the divs in the Html
 let clicks = 0;
 
@@ -54,8 +54,14 @@ target.addEventListener(`click`, (e)=>{
     position(target,gameArea);
     updateScore.innerHTML++
     sfx.soundEffect.play();
-    startTime = Date.now();
-    console.log(times)
+      target.style.display = `none`; // hide target during delay
+
+    const delay = Math.random() * 1500 + 500;
+    setTimeout(() => {
+        position(target, gameArea);
+        target.style.display = `inline`;
+        startTime = Date.now();
+    }, delay);
 })
 reset.addEventListener(`click`, e=>{
     start.style.display = `inline`;
@@ -66,9 +72,12 @@ reset.addEventListener(`click`, e=>{
 })
 start.addEventListener(`click`, (e)=>{
     start.style.display =`none`;
-    position(target,gameArea);    
-    target.style.display = `inline`;
-    startTime = Date.now();
+   
+    setTimeout(() => {
+        position(target, gameArea);    
+        target.style.display = `inline`;
+        startTime = Date.now(); // start reaction timer
+    }, delay);
 })
 pause.addEventListener(`click`, e=>{
     target.style.display =  `none`;
