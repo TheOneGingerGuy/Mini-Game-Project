@@ -8,12 +8,17 @@ const score = [];
 let seconds = 0;
 let timer = null;
 let lives = 3;
+let startTime = 0;
+let endTime = 0;
+const updateScore = document.getElementById("updateScore");
 const sfxAudio = document.getElementById(`sfxAudio`)
 const soundToggleButton = document.getElementById(`soundToggleButton`)
 const sfx = {
     soundEffect: new Audio(`squidward-spare-change-made-with-Voicemod.mp3`)
 }
+const appearDelay = Math.random() * 1500 + 500; // 0.5 to 2 seconds
 // basic targeters for the divs in the Html
+let clicks = 0;
 
 
 
@@ -41,19 +46,29 @@ function position(target,gameArea){
 //     const startTime = Date.now();
 // }
 target.addEventListener(`click`, (e)=>{
+    clicks = clicks + 1; 
+    endTime = Date.now();
+    const reactionTime = endTime - startTime;
+    times.push(reactionTime);
+    console.log(`Reaction Time:`, reactionTime, `ms`);
     position(target,gameArea);
     updateScore.innerHTML++
-    soundEffect: new Audio(``)
+    sfx.soundEffect.play();
+    startTime = Date.now();
+    console.log(times)
 })
 reset.addEventListener(`click`, e=>{
     start.style.display = `inline`;
     target.style.display =  `none`;
     updateScore.innerHTML = 0;
+    endgame();
+    times.length = 0;
 })
 start.addEventListener(`click`, (e)=>{
     start.style.display =`none`;
     position(target,gameArea);    
     target.style.display = `inline`;
+    startTime = Date.now();
 })
 pause.addEventListener(`click`, e=>{
     target.style.display =  `none`;
@@ -69,6 +84,22 @@ function startTimer(){
         }, 1000) //1s
     }
 }
+function endgame(){
+    const totalClicks = times.length;
+    const average = Math.floor(times.reduce((a,b) => a + b, 0) / totalClicks) / 100;
+    const fastest = Math.min(...times) / 100;
+    const slowest = Math.max(...times) / 100;
+    alert(
+        ` Game over, Your half-baked.\n`+
+        ` Reaction Summary: \n`+
+        ` Total Hits = ${clicks} \n` +
+        ` Average Time = ${average} ms\n` +
+        ` Fastest Time = ${fastest} ms\n` +
+        ` Slowest Time = ${slowest} ms\n` +
+        ` List of reaction of times ${times} `
+    );
+
+}
 function pauseTimer(){
     clearInterval(timer)
     timer = null
@@ -78,7 +109,7 @@ function resetTimer(){
     seconds = 0
     updateDisplay(seconds);
 }
-soundToggleButton.addEventListener(click ,  e=> {
+soundToggleButton.addEventListener(`click` ,  e=> {
     if(sfxAudio.muted){
         sfxAudio.muted = false;
         soundToggleButton.classList.remove(`sound-off`);
@@ -89,4 +120,6 @@ soundToggleButton.addEventListener(click ,  e=> {
         soundToggleButton.classList.add(`sound-off`);
     }
 })
-   
+if(clicks >= 20 ){
+    endgame();
+}
