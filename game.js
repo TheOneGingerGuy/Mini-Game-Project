@@ -6,8 +6,8 @@ const target = document.getElementById(`target`)
 const times = [];
 const score = [];
 let seconds = 0;
+let lives = 3
 let timer = null;
-let lives = 3;
 let startTime = 0;
 let endTime = 0;
 const updateScore = document.getElementById("updateScore");
@@ -55,6 +55,7 @@ target.addEventListener(`click`, (e)=>{
     updateScore.innerHTML++
     sfx.soundEffect.play();
       target.style.display = `none`; // hide target during delay
+    lives ++
 
     const delay = Math.random() * 1500 + 500;
     setTimeout(() => {
@@ -69,6 +70,14 @@ reset.addEventListener(`click`, e=>{
     updateScore.innerHTML = 0;
     endgame();
     times.length = 0;
+})
+gameArea.addEventListener(`click`, (e)=>{
+    lives--
+    livesCounter.innerHTML = lives
+    if(lives < 1){
+        resetTimer()
+        endgame()
+    };
 })
 start.addEventListener(`click`, (e)=>{
     start.style.display =`none`;
@@ -85,6 +94,9 @@ pause.addEventListener(`click`, e=>{
 function updateDisplay(){
     document.getElementById('timerDisplay').textContent = seconds
 }
+function livesDisplay(){
+    document.getElementById(`livesCounter`).textContent = lives
+}
 function startTimer(){
     if(timer === null){
         timer = setInterval(()=>{
@@ -98,14 +110,14 @@ function endgame(){
     const average = Math.floor(times.reduce((a,b) => a + b, 0) / totalClicks) / 100;
     const fastest = Math.min(...times) / 100;
     const slowest = Math.max(...times) / 100;
+    resetTimer()
     alert(
         ` Game over, Your half-baked.\n`+
         ` Reaction Summary: \n`+
         ` Total Hits = ${clicks} \n` +
         ` Average Time = ${average} ms\n` +
         ` Fastest Time = ${fastest} ms\n` +
-        ` Slowest Time = ${slowest} ms\n` +
-        ` List of reaction of times ${times} `
+        ` Slowest Time = ${slowest} ms\n`
     );
 
 }
@@ -117,6 +129,8 @@ function resetTimer(){
     pauseTimer();
     seconds = 0
     updateDisplay(seconds);
+    lives = 3
+    livesDisplay(lives)
 }
 soundToggleButton.addEventListener(`click` ,  e=> {
     if(sfxAudio.muted){
@@ -129,6 +143,6 @@ soundToggleButton.addEventListener(`click` ,  e=> {
         soundToggleButton.classList.add(`sound-off`);
     }
 })
-if(clicks >= 20 ){
+if(score >= 20 ){
     endgame();
 }
