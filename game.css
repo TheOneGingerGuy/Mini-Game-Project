@@ -1,11 +1,13 @@
 body {
       font-family: Arial, sans-serif;
       text-align: center;
+      background-color: #17191a;
+      color: white;
     }
     #gameArea {
       width: 400px;
       height: 300px;
-      border: 2px solid #333;
+      border: 2px solid #6d6659;
       margin: 2rem auto;
       position: relative;
       overflow: hidden;
@@ -13,18 +15,71 @@ body {
     #target{
       width: 40px;
       height: 40px;
-      background: orange;
+      background: cornflowerblue;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      background-image: url(./5b96qsjszeqd1.gif);
+      background-size: cover;
+      display: none;
     }
     #info {
       margin-top: 1rem;
     }
-    #bar{
+    #start{
+      background-color: cornflowerblue;
+      border-radius: 15px;
+      padding: 3px;
+      width: 75px;
+      box-shadow: 2px 2px 5px cornflowerblue;
+      color: #dcdbd8;
+    }
+     #reset{
+      background-color: cornflowerblue;
+      border-radius: 15px;
+      padding: 3px;
+      width: 75px;
+      box-shadow: 2px 2px 5px cornflowerblue;
+      color: #dcdbd8;
+    }
+    #pause{
+      background-color: cornflowerblue;
+      border-radius: 15px;
+      padding: 3px;
+      width: 75px;
+      box-shadow: 2px 2px 5px cornflowerblue;
+      color: #dcdbd8;
+    }
+    #soundToggleButton{
+      background-color: cornflowerblue;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition:background-color 0.3s;
+    }
+    #soundToggleButton:hover{
+      background-color: #dcdbd8;
+    }
+    #soundToggleButton.sound-on .fa-volume-mute {
+      display: none !important;
+    }
+    #soundToggleButton.sound-off .fa-volume-up {
+      display: none !important;
+    }
+    #soundToggleButton.sound-on .fa-volume-mute {
+      display: inline-block !important;
+    }
+  #bar{
       display: flex;
       flex-direction: row;
       justify-content: center;
       gap: 30px;
     }
+    button:hover {
+  font-size : 12px;
+}
