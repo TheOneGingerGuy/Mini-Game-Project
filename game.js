@@ -53,7 +53,9 @@ target.addEventListener(`click`, (e)=>{
     console.log(`Reaction Time:`, reactionTime, `ms`);
     position(target,gameArea);
     updateScore.innerHTML++
-    sfx.soundEffect.play();
+    if(soundToggleButton.classList.contains(`sound-on`)){
+        sfx.soundEffect.play();
+    }
       target.style.display = `none`; // hide target during delay
     lives ++
 
